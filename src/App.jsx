@@ -1,11 +1,7 @@
+import Home from "./pages/Home";
+
 function App() {
-  return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
-      <h1 className="text-4xl font-bold">
-        Resume Builder
-      </h1>
-    </div>
-  )
+  return <Home />;
 }
 
-export default App
+export default App;
