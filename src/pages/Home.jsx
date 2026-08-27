@@ -12,48 +12,46 @@ function Home() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="px-6 py-20 sm:py-24">
-          <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
-            
-            <div>
-              <span className="inline-block rounded-full bg-[#758695]/15 px-4 py-2 text-sm font-semibold text-[#758695]">
-                Professional Resume Builder
-              </span>
+      <section className="px-6 py-16 sm:py-20">
+  <div className="mx-auto flex min-h-[calc(100vh-145px)] max-w-7xl items-center justify-center">
+    <div className="max-w-3xl text-center">
 
-              <h1 className="mt-6 text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
-                Build a resume that
-                <span className="block text-[#758695]">
-                  gets you noticed.
-                </span>
-              </h1>
+      <span className="inline-block rounded-full bg-[#758695]/15 px-4 py-2 text-sm font-medium text-[#758695]">
+        Professional Resume Builder
+      </span>
 
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-700">
-                Create a professional resume in minutes. Choose a beautiful
-                template, add your experience, and download your resume
-                whenever you're ready.
-              </p>
+      <h1 className="mt-6 text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl">
+        Build a resume that
+        <span className="block text-[#758695]">
+          gets you noticed.
+        </span>
+      </h1>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button className="rounded-lg bg-[#758695] px-6 py-3 font-semibold text-white transition hover:opacity-90">
-                  Create My Resume
-                </button>
+      <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+        Create a professional resume in minutes with our simple and
+        easy-to-use resume builder. Choose a template, add your details,
+        and make your next opportunity count.
+      </p>
 
-                <button className="rounded-lg border border-[#758695]/40 bg-white px-6 py-3 font-semibold text-[#758695] transition hover:bg-[#758695]/10">
-                  View Templates
-                </button>
-              </div>
+      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <button className="rounded-lg bg-[#758695] px-7 py-3 font-semibold text-white transition duration-200 hover:opacity-90">
+          Create My Resume
+        </button>
 
-              <div className="mt-8 flex flex-wrap gap-6 text-sm text-slate-600">
-                <span>✓ Easy to use</span>
-                <span>✓ Professional designs</span>
-                <span>✓ PDF download</span>
-              </div>
-            </div>
+        <button className="rounded-lg border border-[#758695]/40 bg-white px-7 py-3 font-semibold text-[#758695] transition duration-200 hover:bg-[#758695]/10">
+          View Templates
+        </button>
+      </div>
 
-            <ResumeMockup />
+      <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-500">
+        <span>✓ Easy to use</span>
+        <span>✓ Professional templates</span>
+        <span>✓ Download as PDF</span>
+      </div>
 
-          </div>
-        </section>
+    </div>
+  </div>
+</section>
 
         <Features />
         <HowItWorks />
