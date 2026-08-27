@@ -1,4 +1,4 @@
-function Footer() {
+function footer() {
   return (
     <footer className="border-t border-[#758695]/20 bg-[#F1ECDA]">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
@@ -22,4 +22,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default footer;
