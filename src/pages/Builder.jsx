@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
   Download,
@@ -62,6 +63,7 @@ const initialData = {
 };
 
 function Builder() {
+    const navigate = useNavigate();
   const [resume, setResume] = useState(initialData);
 
   // -----------------------------
@@ -165,14 +167,18 @@ function Builder() {
           </div>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              className="hidden items-center gap-2 rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 sm:flex"
-            >
-              <Eye size={17} />
-              Preview
-            </button>
-
+           <button
+  type="button"
+  onClick={() =>
+    navigate("/preview", {
+      state: { resume },
+    })
+  }
+  className="hidden items-center gap-2 rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 sm:flex"
+>
+  <Eye size={17} />
+  Preview
+</button>
             <button
               type="button"
               className="flex items-center gap-2 rounded-lg bg-[#758695] px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"

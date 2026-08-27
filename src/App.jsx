@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Builder from "./pages/Builder";
+import Preview from "./pages/Preview";
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/builder" element={<Builder />} />
+        <Route path="/preview" element={<Preview />} />
       </Routes>
     </BrowserRouter>
   );
