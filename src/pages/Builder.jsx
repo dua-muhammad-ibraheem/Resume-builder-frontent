@@ -1,4 +1,4 @@
-
+import html2pdf from "html2pdf.js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -63,8 +63,61 @@ const initialData = {
 };
 
 function Builder() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [resume, setResume] = useState(initialData);
+
+ const handleDownload = async () => {
+  const element = document.getElementById("resume-preview");
+
+  if (!element) return;
+
+  const clone = element.cloneNode(true);
+
+  clone.style.position = "fixed";
+  clone.style.left = "-10000px";
+  clone.style.top = "0";
+  clone.style.width = "794px";
+  clone.style.minHeight = "1123px";
+  clone.style.height = "1123px";
+  clone.style.overflow = "visible";
+  clone.style.backgroundColor = "#ffffff";
+
+  document.body.appendChild(clone);
+
+  try {
+    const options = {
+      margin: 0,
+      filename: `${resume.fullName || "resume"}.pdf`,
+      image: {
+        type: "jpeg",
+        quality: 0.98,
+      },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff",
+        width: 794,
+        height: 1123,
+        windowWidth: 794,
+        windowHeight: 1123,
+      },
+      jsPDF: {
+        unit: "px",
+        format: [794, 1123],
+        orientation: "portrait",
+      },
+    };
+
+    await html2pdf()
+      .set(options)
+      .from(clone)
+      .save();
+  } finally {
+    document.body.removeChild(clone);
+  }
+};
+
+  // Simple fields
 
   // -----------------------------
   // Simple fields
@@ -986,16 +1039,19 @@ function Builder() {
                   Live Preview
                 </h2>
 
-                <button
-                  type="button"
-                  className="flex items-center gap-2 text-sm font-medium text-[#758695]"
-                >
-                  <Download size={16} />
-                  Download
-                </button>
+             <button
+  type="button"
+  onClick={handleDownload}
+  className="flex items-center gap-2 text-sm font-medium text-[#758695] transition hover:opacity-70"
+>
+  <Download size={16} />
+  Download
+</button>
               </div>
-
-              <div className="min-h-[520px] overflow-hidden rounded-lg bg-white p-7 shadow-md">
+<div
+  id="resume-preview"
+  className="h-[1123px] w-[794px] overflow-hidden rounded-lg bg-white p-7 shadow-md"
+>
                 {/* Preview Header */}
                 <div className="flex gap-4 border-b-2 border-[#758695] pb-4">
                   {resume.image && (
